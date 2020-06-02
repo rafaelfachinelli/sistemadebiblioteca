@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<form action="#" th:action="@{/livros/salvar}" th:object="${livro}"
+		method="post">
+		<div class="row">
+			<div class="form-group col-md-4">
+				<label for="isbn" class="col-form-label">ISBN</label>
+				<input type="text" th:field="*{isbn}" id="isbn" placeholder="isbn">
+			</div>
+		</div>
+		<div class="form-group col-md-8">
+			<input type="submit" class="btn btn-primary" value="Cadastrar Livro">
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>Consultar livro</h3>
+	<p>
+		Aplicação Web. Parametro recebido : <span th:text="${message}">
+	</p>
+	<p>
+		Data atual - <span th:text="${serverDate}" />
+	</p>
+	<p></p>
+	<tbody>
+		<tr th:each="livro: ${livros}">
+			<td th:text="${livro.isbn}" />
+			<td th:text="${livro.titulo}" />
+		</tr>
+	</tbody>
+</body>
+</html>
