@@ -1,26 +1,35 @@
 package com.fatec.scel.controller;
 
-import java.text.SimpleDateFormat;
+import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-import com.fatec.scel.model.Livro;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.servlet.ModelAndView;
+
+import com.fatec.scel.model.Livro;
+import com.fatec.scel.model.LivroRepository;
 
 @Controller
-@RequestMapping("/livros")
+@RequestMapping(path = "/livros")
 public class LivroController {
-	// Define a URL que requisitada chama o método
-	@GetMapping("/menu")
-	public String home() {
-		// Retorna a view que deve ser chamada, neste exemplo a pagina menu (html)
-		return "menu";
+	Logger logger = LogManager.getLogger(LivroController.class);
+	@Autowired
+	private LivroRepository repository;
+
+	@GetMapping("/consulta")
+	public ModelAndView listar() {
+		ModelAndView modelAndView = new ModelAndView("consultarLivro");
+		modelAndView.addObject("livros", repository.findAll());
+		return modelAndView;
 	}
 
 	@GetMapping("/cadastrar")
@@ -30,29 +39,58 @@ public class LivroController {
 		return mv;
 	}
 
-	@PostMapping("/salvar")
-	public ModelAndView adicionar(Livro livro) {
-		String pattern = "dd-MM-yyyy";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		String data = simpleDateFormat.format(new Date());
-		System.out.println("ISBN digitado na interface ===>" + livro.getIsbn());
-		ModelAndView modelAndView = new ModelAndView("consultarLivro");
-		modelAndView.addObject("serverDate", data);
-		modelAndView.addObject("message", livro.getIsbn());
-		modelAndView.addObject("livros", carrega());
+	@GetMapping("/edit/{isbn}")
+	public ModelAndView mostraFormAdd(@PathVariable("isbn") String isbn) {
+		ModelAndView modelAndView = new ModelAndView("atualizarLivro");
+		modelAndView.addObject("livro", repository.findByIsbn(isbn));  
 		return modelAndView;
 	}
 
-	public List<Livro> carrega() {
-		List<Livro> livros = new ArrayList<Livro>();
-		Livro livro = new Livro("1111", "engenharia de software", "pressman");
-		livros.add(livro);
-		livro = new Livro("2222", "programacao web", "silvan");
-		livros.add(livro);
-		livro = new Livro("2222", "java como programar", "deitel");
-		livros.add(livro);
-		return livros;
+	@GetMapping("/delete/{id}")
+	public ModelAndView delete(@PathVariable("id") Long id) {
+
+		repository.deleteById(id);
+		ModelAndView modelAndView = new ModelAndView("consultarLivro");
+		modelAndView.addObject("livros", repository.findAll());
+		return modelAndView;
+	}
+
+	@PostMapping("/save")
+	public ModelAndView save(@Valid Livro livro, BindingResult result) {
+		ModelAndView modelAndView = new ModelAndView("consultarLivro");
+		if (result.hasErrors()) {
+			return new ModelAndView("cadastrarLivro");
+		}
+		try {
+			Livro jaExiste = null;
+			jaExiste = repository.findByIsbn(livro.getIsbn());
+			if (jaExiste == null) {
+				repository.save(livro);
+				modelAndView = new ModelAndView("consultarLivro");
+				modelAndView.addObject("livros", repository.findAll());
+				return modelAndView;
+			} else {
+				return new ModelAndView("cadastrarLivro");
+			}
+		} catch (Exception e) {
+			logger.info("erro ===> " + e.getMessage());
+			return modelAndView;
+		}
+	}
+
+	@PostMapping("/update/{id}")
+	public ModelAndView atualiza(@PathVariable("id") Long id, @Valid Livro livro, BindingResult result) {
+		if (result.hasErrors()) {
+			livro.setId(id);
+			return new ModelAndView("atualizarLivro");
+		}
+		Livro umLivro = repository.findById(id).get();
+		umLivro.setAutor(livro.getAutor());
+		umLivro.setIsbn(livro.getIsbn());
+		umLivro.setTitulo(livro.getTitulo());
+		repository.save(umLivro);
+		ModelAndView modelAndView = new ModelAndView("consultarLivro");
+		modelAndView.addObject("livros", repository.findAll());
+		return modelAndView;
 	}
 }
-
-//Exemplo Commit
