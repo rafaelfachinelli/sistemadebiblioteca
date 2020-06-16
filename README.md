@@ -1,13 +1,10 @@
-# ffvgrupo5
-Trabalho para Programação Web na FATEC Ferraz de Vasconcelos.
-
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
 ### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
-### Grupo 1
-- George Washington
-- John Adams
-- Thomas Jefferson
+### Grupo 5
+- Joabe Benção
+- Lucas Fernandes
+- Rafael Fachinelli
 ### Objetivo
 Este projeto tem como objetivo implementar uma aplicação de empréstimo e devolução de livros, para se familiarizar com a
 plataforma de desenvolvimento web JEE Spring Boot.
