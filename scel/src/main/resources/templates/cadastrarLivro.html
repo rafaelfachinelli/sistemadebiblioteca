@@ -1,41 +1,48 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" >
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<title>SCEL: Cadastrar Livro</title>
 		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
 		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
-	<header th:replace="fragments/header :: cabecalho">
-		<div>header</div>
-	</header>
+	
+	
+	<nav class="navbar navbar-dark">
+		<img th:src="@{/img/NavCPS.png}"/>
+		<img th:src="@{/img/NavFatec.png}"/>
+		<img th:src="@{/img/NavGoverno.png}"/>
+	  </nav>
+
+	  
+
 	<div class="container my-5">
 		<br />
-
-		<h3>Cadastrar Livro</h3>
-		<div class="card">
+		
+		<h3 style="color: white; text-align: center;">Livros - Cadastrar</h3>
 			<div class="card-body">
 				<div class="col-md-8">
 					<form action="#" th:action="@{/livros/save}" th:object="${livro}"
 						method="post">
-						<div class="row">
+						<div class="row" style="background-color: tomato;">
 							<div class="form-group col-md-4">
 								<label for="isbn" class="col-form-label">ISBN</label>
 								<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
 								<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" style="background-color: tomato; border-radius:0px">
 							<div class="form-group col-md-8">
 								<label for="autor" class="col-form-label">Autor</label>
 								<input type="text" th:field="*{autor}" class="form-control" id="autor" placeholder="Autor">
 								<span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="text-danger"></span>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" style="background-color: tomato;">
 							<div class="form-group col-md-8">
 								<label for="titulo" class="col-form-label">Titulo</label>
 								<input type="text" th:field="*{titulo}" class="form-control" id="titulo" placeholder="Titulo">
@@ -48,11 +55,10 @@
 					</form>
 				</div>
 			</div>
-		</div>
 		<h6 th:text="${message}" class="text-danger"></h6>
 	</div>
-	<footer th:replace="fragments/footer :: rodape">
-		<div>footer</div>
+	<footer class="card-footer">
+		<div>Todos os direitos reservados - 2020</div>
 	</footer>
 </body>
 </html>
