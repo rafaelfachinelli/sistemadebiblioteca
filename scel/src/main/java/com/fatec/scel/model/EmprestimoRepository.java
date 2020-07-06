@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmprestimoRepository extends CrudRepository<Emprestimo, Long> {
 	 @Query("SELECT l FROM Livro l WHERE l.isbn = :isbn")
-	 public Livro findByIsbn(@Param("isbn") String isbn);
+	 public Livro findByIsbn(@Param("isbn") String isbn); //Em teste
 }
