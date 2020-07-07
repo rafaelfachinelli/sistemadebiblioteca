@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+		<title>SCEL: Cadastrar Livro</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-dark">
+			<img th:src="@{/img/NavCPS.png}"/>
+			<img th:src="@{/img/NavFatec.png}"/>
+			<img th:src="@{/img/NavGoverno.png}"/>
+		</nav>
+	
+		<div class="container my-5">
+			<div class="row">
+				<div class="col mx-auto borderSCEL p-3">
+					<h3 style="color: white; text-align: center;">Livros</h3>
+					<br/>
+					<div class="colSCEL p-3">
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
+						<a type="submit" class="btn btn-primary" th:href="@{/livros/consultar}">Consultar</a>
+					</div>
+				</div>
+				<div class="col mx-auto borderSCEL p-3">
+					<h3 style="color: white; text-align: center;">Usuários</h3>
+					<br/>
+					<div class="colSCEL p-3">
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
+						<a type="submit" class="btn btn-primary" th:href="@{/livros/consultar}">Consultar</a>
+					</div>
+				</div>
+				<div class="col mx-auto borderSCEL p-3">
+					<h3 style="color: white; text-align: center;">Serviços</h3>
+					<br/>
+					<div class="colSCEL p-3">
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
+						<a type="submit" class="btn btn-primary" th:href="@{/livros/consultar}">Consultar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="card-footer">Todos os direitos reservados - 2020</div>
+	</body>
+</html>

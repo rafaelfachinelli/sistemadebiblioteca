@@ -6,11 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" th:href="@{/css/style.css}">
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-<title>SCEL: Atualizar Livro</title>
+<title>SCEL: Atualizar Usuário</title>
 </head>
-<header th:replace="fragments/header :: cabecalho">
-	<div>header</div>
-</header>
 <body>
 	<div class="container my-5">
 		<br />
@@ -19,8 +16,8 @@
 			<div class="card-body">
 				<div class="col-md-8">
 					<form action="#"
-						th:action="@{/usuarios/update/{ra} (ra=${usuario.ra}) }"
-						th:object="${usuarios}" method="post">
+						th:action="@{/usuarios/update/{id} (id=${usuario.id}) }"
+						th:object="${usuario}" method="post">
 						<div class="row">
 							<div class="form-group col-md-4">
 								<label for="ra" class="col-form-label">RA</label> <input
