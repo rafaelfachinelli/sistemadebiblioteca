@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>SCEL: Lista de Usuários</title>
+</head>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h2 class="panel-title">Lista de usuários</h2>
+		</div>
+		<div class="panel-body" th:switch="${usuarios}">
+			<h2 th:case="null">Não existem usuários cadastrados ainda!</h2>
+			<div th:case="*">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>RA</th>
+							<th>Nome</th>
+							<th>E-mail</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="usuario : ${usuarios}">
+							<td th:text="${usuarios.ra}"></td>
+							<td th:text="${usuarios.nome}"></td>
+							<td th:text="${usuarios.email}"></td>
+							<td>
+								<div class="btn-group pull-right">
+									<a class="btn btn-sm btn-primary" th:href="@{/usuarios/edit/{ra}(ra=${usuario.ra})}">Editar</a>
+									<a class="delete btn btn-sm btn-danger" th:href="@{/usuarios/delete/{ra}(ra=${lusuario.ra})}">Excluir</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</body>
+</html>
