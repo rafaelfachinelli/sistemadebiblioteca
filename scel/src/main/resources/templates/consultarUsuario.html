@@ -29,13 +29,13 @@
 					</thead>
 					<tbody>
 						<tr th:each="usuario : ${usuarios}">
-							<td th:text="${usuarios.ra}"></td>
-							<td th:text="${usuarios.nome}"></td>
-							<td th:text="${usuarios.email}"></td>
+							<td th:text="${usuario.ra}"></td>
+							<td th:text="${usuario.nome}"></td>
+							<td th:text="${usuario.email}"></td>
 							<td>
 								<div class="btn-group pull-right">
 									<a class="btn btn-sm btn-primary" th:href="@{/usuarios/edit/{ra}(ra=${usuario.ra})}">Editar</a>
-									<a class="delete btn btn-sm btn-danger" th:href="@{/usuarios/delete/{ra}(ra=${lusuario.ra})}">Excluir</a>
+									<a class="delete btn btn-sm btn-danger" th:href="@{/usuarios/delete/{ra}(ra=${usuario.ra})}">Excluir</a>
 								</div>
 							</td>
 						</tr>
