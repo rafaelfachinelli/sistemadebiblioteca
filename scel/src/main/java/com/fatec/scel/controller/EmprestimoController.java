@@ -41,6 +41,7 @@ public class EmprestimoController {
 		logger.info("emprestimo ==> " + emprestimo.getRa());
 		ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
 		if (result.hasErrors()) {
+			logger.info("emprestimo ==> ERRO NO RESULTADO");
 			modelAndView.setViewName("registrarEmprestimo");
 		}
 		try {
