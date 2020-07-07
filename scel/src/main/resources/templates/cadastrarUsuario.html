@@ -25,20 +25,20 @@
 						
 				<label for="ra" class="col-form-label">RA</label> 
 				<input type="text" th:field="*{ra}" class="form-control" id="ra"placeholder="RA"> 
-				<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}"class="textdanger"> </span>
+				<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}"class="text-warning"> </span>
 						
 				<label for="nome" class="col-form-label">Nome</label>		
 				<input type="text" th:field="*{nome}" class="form-control" id="nome" placeholder="Nome"> 
-				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"class="text-danger"> </span>
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"class="text-warning"> </span>
 						
 				<label for="email" class="col-form-label">E-mail</label>				 
 				<input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email">
-				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>				
+				<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-warning"></span>				
 				
 				<br/>
 							
-				<input type="submit" class="btn btn-success" value="Cadastrar Usuário"> 
-				<a type="submit" class="btn btn-primary float-sm-right" th:href="@{/home/}">Home</a>
+				<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar Usuário"> 
+				<a type="submit" class="btn btn-primary " th:href="@{/home/}">Home</a>
 								
 			</form>
 		</div>

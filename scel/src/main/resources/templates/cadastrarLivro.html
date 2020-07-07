@@ -25,20 +25,20 @@
 					
 						<label for="isbn" class="col-form-label">ISBN</label>
 						<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
-						<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
+						<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-warning"></span>
 						
 						<label for="autor" class="col-form-label">Autor</label>
 						<input type="text" th:field="*{autor}" class="form-control" id="autor" placeholder="Autor">
-						<span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="text-danger"></span>
+						<span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="text-warning"></span>
 						
 						<label for="titulo" class="col-form-label">Título</label>
 						<input type="text" th:field="*{titulo}" class="form-control" id="titulo" placeholder="Título">
-						<span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></span>
+						<span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-warning"></span>
 						
 						<br/>
 						
-						<input type="submit" class="btn btn-success" value="Cadastrar Livro">
-						<a type="submit" class="btn btn-primary float-sm-right" th:href="@{/home/}">Home</a>
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar Livro">
+						<a type="submit" class="btn btn-primary " th:href="@{/home/}">Home</a>
 					</form>
 				</div>
 			</div>
