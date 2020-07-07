@@ -22,7 +22,6 @@
 				<br/>
 				<div class="colSCEL p-3">
 					<form action="#" th:action="@{/emprestimos/save}" th:object="${emprestimo}" method="post">
-					s
 						<label for="isbn" class="col-form-label">ISBN</label>
 						<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
 						<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-warning"></span>
