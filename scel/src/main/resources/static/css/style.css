@@ -1,3 +1,12 @@
+html, body {height:100%;}
+ 
+.container {
+	min-height:70%;
+    position:relative;
+    width:800px
+}
+
+
  .borderSCEL  {
   	border-color: tomato;
   	border-style: solid;
@@ -13,9 +22,13 @@
  	background-color: tomato;
   	text-align: center;
   	color: white;
-  	vertical-align: middle;
+	vertical-align: middle;
+	position:absolute;
+	bottom:0px;
+	width:100%;
  }
  
  .navbar {
  	background-color: tomato;
  }
+
