@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<title>SCEL: Atualizar Livro</title>
+</head>
+<header th:replace="fragments/header :: cabecalho">
+	<div>header</div>
+</header>
+<body>
+	<div class="container my-5">
+		<br />
+		<h3>Atualizar Usuário</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form action="#"
+						th:action="@{/usuarios/update/{ra} (ra=${usuario.ra}) }"
+						th:object="${usuarios}" method="post">
+						<div class="row">
+							<div class="form-group col-md-4">
+								<label for="ra" class="col-form-label">RA</label> <input
+									type="text" th:field="*{ra}" class="form-control" id="ra"
+									placeholder="RA"> <span
+									th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}"
+									class="text-danger"> </span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="name" class="col-form-label">Nome</label> <input
+									type="text" th:field="*{nome}" class="form-control" id="nome"
+									placeholder="Nutor"> <span
+									th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"
+									class="text-danger"> </span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="form-group col-md-8">
+								<label for="email" class="col-form-label">E-mail</label> <input
+									type="text" th:field="*{email}" class="form-control"
+									id="email" placeholder="email"> <span
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary"value="Atualiza Usuario">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
