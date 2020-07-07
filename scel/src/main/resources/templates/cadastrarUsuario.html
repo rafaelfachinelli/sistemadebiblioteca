@@ -9,9 +9,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 <body>
-	<header th:replace="fragments/header :: cabecalho">
-		<div>header</div>
-	</header>
+	<nav class="navbar navbar-dark">
+			<img th:src="@{/img/NavCPS.png}"/>
+			<img th:src="@{/img/NavFatec.png}"/>
+			<img th:src="@{/img/NavGoverno.png}"/>
+		</nav>
 	<div class="container my-5">
 		<br />
 
@@ -47,7 +49,8 @@
 							</div>
 							<div class="form-group col-md-8">
 								<input type="submit" class="btn btn-primary" value="Cadastrar Usuario"> 
-								<input type="button" class="btn btn-primary" value="Consultar Usuario" onclick="consulta();">
+								<a type="submit" class="btn btn-primary" th:href="@{/usuarios/consulta}">Consultar Usuário</a>
+								
 							</div>
 						</div>
 					</form>
