@@ -30,7 +30,7 @@
 						<label for="ra" class="col-form-label">RA</label>
 						<input type="text" th:field="*{ra}" class="form-control" id="ra" placeholder="RA">
 						<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}" class="text-danger"></span>
-						
+						<div th:replace="fragments/alert"></div>
 						<br/>
 						
 						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
