@@ -28,6 +28,13 @@ public class EmprestimoController {
 		mv.addObject("emprestimo", emprestimo);
 		return mv;
 	}
+	
+	@GetMapping("/consultar")
+	public ModelAndView retornaFormDeConsultaTodosLivros() {
+		ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
+		modelAndView.addObject("livros", servico.findAll());
+		return modelAndView;
+	}
 
 	@PostMapping("/save")
 	public ModelAndView save(@Valid Emprestimo emprestimo, BindingResult result) {
@@ -54,7 +61,7 @@ public class EmprestimoController {
 	@GetMapping("/delete/{id}")
 	public ModelAndView delete(@PathVariable("id") Long id) {
 		servico.deleteById(id);
-		ModelAndView modelAndView = new ModelAndView("ConsultarEmprestimo");
+		ModelAndView modelAndView = new ModelAndView("consultarEmprestimo");
 		modelAndView.addObject("emprestimos", servico.findAll());
 		return modelAndView;
 	}

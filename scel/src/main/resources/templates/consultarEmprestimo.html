@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<title>SCEL: Lista de Empréstimos</title>
+</head>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h2 class="panel-title">Lista de Empréstimos</h2>
+		</div>
+		<div class="panel-body" th:switch="${emprestimo}">
+			<h2 th:case="null">Não existem empréstimos cadastrados ainda!</h2>
+			<div th:case="*">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>ISBN</th>
+							<th>RA</th>
+							<th>Data Empréstimo</th>
+							<th>Data Devolução</th>
+							<th>Data Devolução Prevista</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="emprestimo : ${emprestimos}">
+							<td th:text="${emprestimo.id}"></td>
+							<td th:text="${emprestimo.isbn}"></td>
+							<td th:text="${emprestimo.ra}"></td>
+							<td th:text="${emprestimo.dataEmprestimo}"></td>
+							<td th:text="${emprestimo.dataDevolucao}"></td>
+							<td th:text="${emprestimo.dataDevolucaoPrevista}"></td>
+							<td>
+								<div class="btn-group">
+									<a class="btn btn-sm btn-primary" th:href="@{/emprestimos/edit/{isbn}(isbn=${emprestimo.isbn})}">Editar</a>
+									<a class="delete btn btn-sm btn-danger" th:href="@{/emprestimos/delete/{id}(id=${emprestimo.id})}">Excluir</a>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+</body>
+</html>

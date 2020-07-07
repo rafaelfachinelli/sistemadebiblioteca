@@ -1,0 +1,21 @@
+ .borderSCEL  {
+  	border-color: tomato;
+  	border-style: solid;
+  	border-radius:20px;
+ }
+ 
+ .colSCEL {
+ 	background-color: tomato; 
+ 	border-radius: 20px;
+ }
+ 
+ .card-footer {
+ 	background-color: tomato;
+  	text-align: center;
+  	color: white;
+  	vertical-align: middle;
+ }
+ 
+ .navbar {
+ 	background-color: tomato;
+ }

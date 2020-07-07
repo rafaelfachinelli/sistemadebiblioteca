@@ -1,64 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>SCEL: Cadastrar Livro</title>
-		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+		<title>SCEL: Cadastrar Livro</title>
 	</head>
-<body>
+	<body>
+		<nav class="navbar navbar-dark">
+			<img th:src="@{/img/NavCPS.png}"/>
+			<img th:src="@{/img/NavFatec.png}"/>
+			<img th:src="@{/img/NavGoverno.png}"/>
+		</nav>
 	
-	
-	<nav class="navbar navbar-dark">
-		<img th:src="@{/img/NavCPS.png}"/>
-		<img th:src="@{/img/NavFatec.png}"/>
-		<img th:src="@{/img/NavGoverno.png}"/>
-	  </nav>
-
-	  
-
-	<div class="container my-5">
-		<br />
-		
-		<h3 style="color: white; text-align: center;">Livros - Cadastrar</h3>
-			<div class="card-body">
-				<div class="col-md-8">
-					<form action="#" th:action="@{/livros/save}" th:object="${livro}"
-						method="post">
-						<div class="row" style="background-color: tomato;">
-							<div class="form-group col-md-4">
-								<label for="isbn" class="col-form-label">ISBN</label>
-								<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
-								<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
-							</div>
-						</div>
-						<div class="row" style="background-color: tomato; border-radius:0px">
-							<div class="form-group col-md-8">
-								<label for="autor" class="col-form-label">Autor</label>
-								<input type="text" th:field="*{autor}" class="form-control" id="autor" placeholder="Autor">
-								<span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="text-danger"></span>
-							</div>
-						</div>
-						<div class="row" style="background-color: tomato;">
-							<div class="form-group col-md-8">
-								<label for="titulo" class="col-form-label">Titulo</label>
-								<input type="text" th:field="*{titulo}" class="form-control" id="titulo" placeholder="Titulo">
-								<span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></span>
-							</div>
-							<div class="form-group col-md-20">
-								<input type="submit" class="btn btn-primary" value="Cadastrar Livro"> <a type="submit" class="btn btn-primary" th:href="@{/livros/consultar}">Lista de Livros</a>
-							</div>
-						</div>
+		<div class="container my-5">
+			<div class="col-md-5 mx-auto borderSCEL p-3">
+				<h3 style="color: white; text-align: center;">Livros - Cadastrar</h3>
+				<br/>
+				<div class="colSCEL p-3">
+					<form action="#" th:action="@{/livros/save}" th:object="${livro}" method="post">
+					
+						<label for="isbn" class="col-form-label">ISBN</label>
+						<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
+						<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
+						
+						<label for="autor" class="col-form-label">Autor</label>
+						<input type="text" th:field="*{autor}" class="form-control" id="autor" placeholder="Autor">
+						<span th:if="${#fields.hasErrors('autor')}" th:errors="*{autor}" class="text-danger"></span>
+						
+						<label for="titulo" class="col-form-label">Título</label>
+						<input type="text" th:field="*{titulo}" class="form-control" id="titulo" placeholder="Título">
+						<span th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></span>
+						
+						<br/>
+						
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
+						<a type="submit" class="btn btn-primary" th:href="@{/livros/consultar}">Consultar</a>
 					</form>
 				</div>
 			</div>
-		<h6 th:text="${message}" class="text-danger"></h6>
-	</div>
-	<footer class="card-footer">
-		<div>Todos os direitos reservados - 2020</div>
-	</footer>
-</body>
+			<h6 th:text="${message}" class="text-danger"></h6>
+		</div>
+		<div class="card-footer">Todos os direitos reservados - 2020</div>
+	</body>
 </html>

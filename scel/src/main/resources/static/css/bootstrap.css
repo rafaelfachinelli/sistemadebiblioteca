@@ -614,11 +614,6 @@ pre code {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  border-color: tomato;
-  border-style: solid;
-  border-radius:20px;
 }
 
 .no-gutters {
@@ -4353,9 +4348,7 @@ input[type="button"].btn-block {
   align-items: center;
   -ms-flex-pack: justify;
   justify-content: center;
-  background: linear-gradient(tomato 10%, sandybrown 80%);
   height: 65px;
-  
 }
 
 .navbar img{
@@ -4800,11 +4793,6 @@ input[type="button"].btn-block {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
-  border-width: medium;
-  border-color: tomato;
-  border-style: solid;
-  border-radius:20px;
-  
 }
 
 .card-title {
@@ -4845,11 +4833,6 @@ input[type="button"].btn-block {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: tomato;
-  text-align: center;
-  color: white;
-  vertical-align: middle;
-  height: 50px;
 }
 
 .card-footer:last-child {

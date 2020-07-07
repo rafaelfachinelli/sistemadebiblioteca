@@ -7,23 +7,14 @@
 <meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" th:href="@{/css/style.css}">
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>SCEL: Lista de Livros</title>
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet"></link>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width" />
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
 			<h2 class="panel-title">Lista de livros</h2>
-			<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
-				rel="stylesheet" />
-			<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
-				rel="stylesheet" />
 		</div>
 		<div class="panel-body" th:switch="${livros}">
 			<h2 th:case="null">Não existem livros cadastrados ainda!</h2>
@@ -45,10 +36,8 @@
 							<td th:text="${livro.autor}"></td>
 							<td>
 								<div class="btn-group pull-right">
-									<a class="btn btn-sm btn-primary"
-										th:href="@{/livros/edit/{isbn}(isbn=${livro.isbn})}">Editar</a>
-									<a class="delete btn btn-sm btn-danger"
-										th:href="@{/livros/delete/{id}(id=${livro.id})}">Excluir</a>
+									<a class="btn btn-sm btn-primary" th:href="@{/livros/edit/{isbn}(isbn=${livro.isbn})}">Editar</a>
+									<a class="delete btn btn-sm btn-danger" th:href="@{/livros/delete/{id}(id=${livro.id})}">Excluir</a>
 								</div>
 							</td>
 						</tr>
