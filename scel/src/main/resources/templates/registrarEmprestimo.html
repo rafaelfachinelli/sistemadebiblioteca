@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>SCEL: Registrar Empréstimo</title>
-		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" th:href="@{/css/style.css}">
 		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="text/javascript" th:src="@{/js/actions.js}"></script>
+		<title>SCEL: Registrar Empréstimo</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-dark">
@@ -17,47 +17,29 @@
 		</nav>
 	
 		<div class="container my-5">
-			<br/>
-			
-			<h3 style="color: white; text-align: center;">Registrar Empréstimo</h3>
-			
-			<div class="card-body">
-				
-				<div class="col-md-8">
-					
+			<div class="col-md-5 mx-auto borderSCEL p-3">
+				<h3 style="color: white; text-align: center;">Empréstimo - Registrar</h3>
+				<br/>
+				<div class="colSCEL p-3">
 					<form action="#" th:action="@{/emprestimos/save}" th:object="${emprestimo}" method="post">
+					
+						<label for="isbn" class="col-form-label">ISBN</label>
+						<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
+						<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
 						
-						<div class="row" style="background-color: tomato;">
-							
-							<div class="form-group col-md-4">
-								
-								<label for="isbn" class="col-form-label">ISBN</label>
-								<input type="text" th:field="*{isbn}" class="form-control" id="isbn" placeholder="isbn">
-								<span th:if="${#fields.hasErrors('isbn')}" th:errors="*{isbn}" class="text-danger"></span>
-								
-								<label for="ra" class="col-form-label">RA</label>
-								<input type="text" th:field="*{ra}" class="form-control" id="ra" placeholder="RA">
-								<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}" class="text-danger"></span>
-								
-								<label for="ra" class="col-form-label">RA</label>
-								<input type="text" th:field="*{ra}" class="form-control" id="ra" placeholder="RA">
-								<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}" class="text-danger"></span>
-								
-								<div class="form-group col-md-20">
-									<br/>
-									<input type="submit" class="btn btn-primary" value="Registrar Empréstimo">
-									<a type="submit" class="btn btn-primary" th:href="@{/emprestimos/consultar}">Lista de Empréstimos</a>
-								</div>
-							</div>
-						</div>
+						<label for="autor" class="col-form-label">RA</label>
+						<input type="text" th:field="*{ra}" class="form-control" id="ra" placeholder="RA">
+						<span th:if="${#fields.hasErrors('ra')}" th:errors="*{ra}" class="text-danger"></span>
+						
+						<br/>
+						
+						<input type="submit" class="btn btn-success float-sm-right" value="Cadastrar">
+						<a type="submit" class="btn btn-primary" th:href="@{/emprestimos/consultar}">Consultar</a>
 					</form>
 				</div>
 			</div>
 			<h6 th:text="${message}" class="text-danger"></h6>
 		</div>
-		
-		<footer class="card-footer">
-			<div>Todos os direitos reservados - 2020</div>
-		</footer>
+		<div class="card-footer">Todos os direitos reservados - 2020</div>
 	</body>
 </html>
