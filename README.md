@@ -4,7 +4,7 @@
 
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
 ### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
-### Grupo 5
+### Equipe
 - Joabe Benção
 - Lucas Fernandes
 - Rafael Fachinelli
