@@ -1,4 +1,7 @@
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
+
+![GitHub](https://img.shields.io/github/license/rafaelfachinelli/sistemadebiblioteca?style=flat-square)
+
 ### Centro Paula Souza - Fatec Ferraz - Curso de Análise e Desenvolvimento de Sistemas
 ### Disciplina – Programação Web – Prof. Edson Saraiva de Almeida
 ### Grupo 5
