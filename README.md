@@ -1,3 +1,7 @@
+<p align="center">
+  <img alt="Sistema de Biblioteca" src=".github/banner.svg" width="250px"/>
+<p>
+
 ## Projeto - Sistema de Controle de Empréstimo e Devolução de Livros
 
 ![GitHub](https://img.shields.io/github/license/rafaelfachinelli/sistemadebiblioteca?style=flat-square)
