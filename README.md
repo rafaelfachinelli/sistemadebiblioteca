@@ -1,75 +1,112 @@
 <p align="center">
-  <img alt="Sistema de Biblioteca" src=".github/banner.svg" width="250px"/>
-<p>
+  <img alt="Library System" src=".github/banner.svg" width="400px"/>
+</p>
 
-![GitHub](https://img.shields.io/github/license/rafaelfachinelli/sistemadebiblioteca?style=flat-square)
+<p align="center">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/rafaelfachinelli/sistemadebiblioteca?color=3498db&style=for-the-badge">
+  <img alt="Last commit" src="https://img.shields.io/github/last-commit/rafaelfachinelli/sistemadebiblioteca?color=3498db&style=for-the-badge">
+  <a href="https://rafaelfachinelli.com">
+    <img alt="Developed by Rafael Fachinelli" src="https://img.shields.io/badge/Developer-Rafael_Fachinelli-3498db?style=for-the-badge">
+  </a>
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-3498db?style=for-the-badge">
+</p>
 
-### Equipe
-- Joabe Benção
-- Lucas Fernandes
-- Rafael Fachinelli
+<p align="center">
+  <a href="#information_source-about">About</a> •
+  <a href="#memo-tasks">Tasks</a> •
+  <a href="#arrow_forward-run">Run</a> •
+  <a href="#hammer_and_wrench-technologies">Technologies</a> •
+  <a href="#boy-author">Author</a> •
+  <a href="#balance_scale-license">License</a>
+</p>
 
-### Objetivo
-Este projeto tem como objetivo implementar uma aplicação de empréstimo e devolução de livros, para se familiarizar com a
-plataforma de desenvolvimento web JEE Spring Boot.
+---
 
-### Processo de Desenvolvimento
-O processo de desenvolvimento segue uma adaptação do Scrum. Cada interação tem a duração de 4 aulas. Ao final da interação o
-código é avaliado pelo time junto com o professor na atividade de revisão da sprint. Em seguida a reunião de restrospectiva do sprint é
-realizada pelo grupo e uma ata é publicada no Teams.
+## :information_source: About
 
-![idef02](https://user-images.githubusercontent.com/14267502/84417700-6a2a2580-abec-11ea-8b39-d20213a4f15d.png)
+📚 A library system for lending and returning books, built in Java with Spring Boot by Joabe Benção, Lucas Fernandes and Rafael Fachinelli in a FATEC course, to get familiar with web development on the Java platform.
 
-### Backlog do produto
+The library clerk registers, searches, edits and deletes books and users, and records loans and returns. Pages are rendered with Thymeleaf, data is stored with Spring Data JPA in an H2 database, and access is protected with Spring Security.
 
-- REQ01 – Cadastrar Livro
-Como – atendente da biblioteca
-Eu quero – cadastrar um livro
-De maneira que – seja possível consultar e emprestar o livro
+The work followed an adaptation of Scrum: each sprint lasted four classes and ended with a review with the teacher and a team retrospective. Requirements were written as user stories with acceptance test cases (given / when / then).
 
-- REQ01CT01 – cadastrar com sucesso
-Dado: que o atendente da biblioteca tem um livro não cadastrado
-Quando: o atendente informa os dados do livro
-Então: o sistema valida os dados E apresenta uma mensagem confirmando o cadastro do livro
+Built in 2020.
 
-- REQ02 - Consultar livro
+---
 
-- REQ03 - Alterar livro
+## :memo: Tasks
 
-- REQ04 - Excluir livro
+<div align="center">
+<details>
+<summary>Click to view</summary>
 
-- REQ05 – Cadastrar usuário
+|State|Task|
+|:---:|:---|
+|:heavy_check_mark:|REQ01: register a book|
+|:heavy_check_mark:|REQ02: search a book|
+|:heavy_check_mark:|REQ03: edit a book|
+|:heavy_check_mark:|REQ04: delete a book|
+|:heavy_check_mark:|REQ05: register a user|
+|:heavy_check_mark:|Loans and returns|
+|:heavy_check_mark:|Login with Spring Security|
 
-Como – atendente da biblioteca
-Eu quero – cadastrar um usuário
-De modo que – seja possível realizar o empréstimo de um livro.
+</details>
+</div>
 
-- REQ05CT01 – Cadastro de usuário com sucesso
-Dado (pré-requisito) – que o RA do usuário não está cadastrado.
-Quando (descrição das ações que devem ser realizadas) – o atendente digita as informações do usuário e confirma a operação.
-Então (resultado esperado) – o sistema retorna uma mensagem confirmando que o cadastro foi realizado
+---
 
-- REQ05CT02 – Cadastro de usuário invalido
-Dado (pré-requisito) – que o RA do usuário está cadastrado.
-Quando (descrição das ações que devem ser realizadas) – o atendente digita as informações do usuário e confirma a operação.
-Então (resultado esperado) – o sistema retorna uma mensagem informando que o usuário já está cadastrado
+## :arrow_forward: Run
 
-### 1. Planejamento da Sprint
+You need Java 11+. In the [`scel/`](scel/) folder:
 
-Durante a fase de planejamento as funcionalidades nesta interação são selecionadas do backlog do produto.
+```bash
+# Start the application (H2 in-memory database)
+./mvnw spring-boot:run
+```
 
-### 2. Estratégia de desenvolvimento.
+> The app opens at <http://localhost:8080>.
 
-Na primeira interação a meta é criar um baseline (base de sustentação) da arquitetura do sistema a fim de definir como o código será
-organizado nas próximas interações. A arquitetura se desenvolve a partir de um exame dos requisitos mais significativos (aqueles que
-têm grande impacto na arquitetura do sistema) e de uma avaliação de risco. A estabilidade da arquitetura é avaliada através de um ou
-mais protótipos de arquitetura. O projeto do “Sistema de Controle de Empréstimo de Livros” deve se utilizar de uma arquitetura que
-permita flexibilidade na configuração do sistema de persistência (mudança do sistema de gerenciamento de banco de dados) e
-manutenções na interface de usuário com poucos efeitos colaterais. A arquitetura selecionada para atender esta necessidade é a
-arquitetura MVC.
-A estratégia de construção e integração do software será ascendente na hierarquia de controle, ou seja, da base de dados (backend) para
-a interface de interação homem máquina (frontend).
+---
 
-### Modelo de Domínio
+## :hammer_and_wrench: Technologies
 
-![modelo de dominio](https://user-images.githubusercontent.com/14267502/84425324-bd55a580-abf7-11ea-99c7-f427b80fb7cc.png) 
+<div align="center">
+
+|Server|Web|
+|:---:|:---:|
+|[Java](https://dev.java/)|[HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)|
+|[Spring Boot](https://spring.io/projects/spring-boot)|[Bootstrap](https://getbootstrap.com/)|
+|[Spring Data JPA](https://spring.io/projects/spring-data-jpa)|[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)|
+|[Spring Security](https://spring.io/projects/spring-security)||
+|[Thymeleaf](https://www.thymeleaf.org/)||
+|[H2](https://www.h2database.com/)||
+|[Maven](https://maven.apache.org/)||
+
+</div>
+
+---
+
+## :boy: Author
+
+<div align="center">
+
+<a href="https://rafaelfachinelli.com">
+  <img src="https://github.com/rafaelfachinelli.png" width="100px" alt="Rafael Fachinelli"/>
+  <br/>
+  <sub><b>Rafael Fachinelli</b></sub>
+</a>
+
+Tech Lead and software engineer. Get in touch!
+
+[![Portfolio](https://img.shields.io/badge/-rafaelfachinelli.com-3498db?style=flat-square&logo=googlechrome&logoColor=white)](https://rafaelfachinelli.com)
+[![LinkedIn](https://img.shields.io/badge/-Rafael_Fachinelli-0a66c2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafaelfachinelli/)
+[![GitHub](https://img.shields.io/badge/-rafaelfachinelli-000?style=flat-square&logo=github&logoColor=white)](https://github.com/rafaelfachinelli)
+[![E-mail](https://img.shields.io/badge/-rafael.l.a.fachinelli@gmail.com-ea4335?style=flat-square&logo=gmail&logoColor=white)](mailto:rafael.l.a.fachinelli@gmail.com)
+
+</div>
+
+---
+
+## :balance_scale: License
+
+This project is under the [MIT license](./LICENSE).
